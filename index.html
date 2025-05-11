@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <title>Promjena pozadine</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        #boja {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="promijeniPozadinu()">Promijeni pozadinu</button>
+    <p id="boja">Trenutna boja: --</p>
+
+    <script>
+        function generirajRandomBoju() {
+            let boja = '#';
+            for (let i = 0; i < 6; i++) {
+                boja += Math.floor(Math.random() * 16).toString(16);
+            }
+            return boja;
+        }
+
+        function promijeniPozadinu() {
+            const novaBoja = generirajRandomBoju();
+            document.body.style.backgroundColor = novaBoja;
+            document.getElementById("boja").textContent = "Trenutna boja: " + novaBoja;
+        }
+    </script>
+
+</body>
+</html>
